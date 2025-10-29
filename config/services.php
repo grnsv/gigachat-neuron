@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'gigachat' => [
+        'client_id' => env('GIGACHAT_CLIENT_ID'),
+        'client_secret' => env('GIGACHAT_CLIENT_SECRET'),
+        'model' => env('GIGACHAT_MODEL', 'GigaChat'),
+        'scope' => env('GIGACHAT_SCOPE', 'GIGACHAT_API_PERS'),
+    ],
+
 ];
