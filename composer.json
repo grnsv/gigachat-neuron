@@ -10,8 +10,10 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "grnsv/neuron-gigachat": "dev-master",
         "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.10.1"
+        "laravel/tinker": "^2.10.1",
+        "neuron-core/neuron-ai": "^2.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -85,5 +87,11 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": {
+        "my-repo": {
+            "type": "git",
+            "url": "https://github.com/grnsv/neuron-gigachat.git"
+        }
+    }
 }
