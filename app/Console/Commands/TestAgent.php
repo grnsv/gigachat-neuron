@@ -20,17 +20,17 @@ final class TestAgent extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Test NeuronAI + GigaChat agent';
 
     /**
      * Execute the console command.
      */
     public function handle(MyAgent $agent)
     {
-        $response = $agent->chat(
-            new UserMessage("Hi, Who are you?")
+        $response = $agent->structured(
+            new UserMessage('Какова вероятность в процентах, что ИИ в этом году захватит мир?'),
         );
 
-        $this->info($response->getContent());
+        $this->info(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "365397aa6fcbdadce15c08dc658a43c2",
+    "content-hash": "c2879fa721d809a76945fb2b5288d1a6",
     "packages": [
         {
             "name": "brick/math",
@@ -645,9 +645,9 @@
         {
             "name": "grnsv/neuron-gigachat",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/grnsv/neuron-gigachat.git",
+            "dist": {
+                "type": "path",
+                "url": "/home/grin/Projects/neuron-gigachat",
                 "reference": "c962ad8c93165424da3d7bb98e23abfea95c3d35"
             },
             "require": {
@@ -663,7 +663,6 @@
                 "phpunit/phpunit": "^9.0",
                 "rector/rector": "^2.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -693,7 +692,9 @@
                 "MIT"
             ],
             "description": "GigaChat provider for Neuron AI.",
-            "time": "2025-11-01T19:00:21+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "guzzlehttp/guzzle",

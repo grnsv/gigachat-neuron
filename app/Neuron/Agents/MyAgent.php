@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Neuron\Agents;
 
+use App\Neuron\DTO\Output;
 use Illuminate\Contracts\Cache\Repository as CacheRepository;
 use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Support\Str;
@@ -26,11 +27,14 @@ final class MyAgent extends Agent
         return new GigaChat(
             config: new Config(...$this->config->get('services.gigachat')),
             cache: $this->cache,
+            // отключаем проверку сертификата
             verifyTLS: false,
+            // сессия передается в заголовке `X-Session-ID`
             httpOptions: new HttpClientOptions(headers: ['X-Session-ID' => $this->getSessionId()]),
         );
     }
 
+    // здесь наш механизм хранения сессий
     private function getSessionId(): string
     {
         return $this->cache->remember(
@@ -43,7 +47,12 @@ final class MyAgent extends Agent
     public function instructions(): string
     {
         return (string) new SystemPrompt(
-            background: ["You are a friendly AI Agent created with NeuronAI framework."],
+            background: ['Ты специалист по правдоподобным предсказаниям. Даешь оценку вероятности события в процентах.'],
         );
+    }
+
+    protected function getOutputClass(): string
+    {
+        return Output::class;
     }
 }
